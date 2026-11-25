@@ -1,1 +1,96 @@
-# One-Year-Of-Us
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One Year of Us 🌼</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&family=Great+Vibes&display=swap');
+:root{--night:#07131c;--gold:#f6ce62;--cream:#fff4d9}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--night);color:var(--cream);font-family:'DM Sans',sans-serif;overflow-x:hidden}button{font:inherit;cursor:pointer}
+#sky{position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse at 50% 70%,#243b3a 0%,transparent 48%),radial-gradient(ellipse at 50% 10%,#1a293a 0%,transparent 55%),linear-gradient(#07111e,#101d25 75%,#172b27)}
+#stars,#fireflies{position:fixed;inset:0;pointer-events:none;z-index:-1}.star,.firefly{position:absolute;border-radius:50%;background:#ffe7a0;box-shadow:0 0 10px #f8d77d;animation:twinkle 3s infinite alternate}
+@keyframes twinkle{from{opacity:.15;transform:scale(.7)}to{opacity:.9;transform:scale(1.3)}}.firefly{animation:float 7s ease-in-out infinite}@keyframes float{0%,100%{transform:translate(0,0);opacity:.3}50%{transform:translate(20px,-65px);opacity:1}}
+#intro{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px 16px;transition:opacity 1.5s,transform 1.5s}
+.eyebrow{color:var(--gold);font-size:10px;letter-spacing:5px;text-transform:uppercase;margin-bottom:30px}
+.hero-flower{width:190px;height:220px;position:relative;margin-bottom:25px;animation:flowerAppear 2s ease forwards}
+@keyframes flowerAppear{from{opacity:0;transform:scale(.3) translateY(50px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.flower{width:100%;height:100%;position:relative;transform-origin:center bottom}
+.petal{position:absolute;width:45px;height:92px;left:50%;top:15%;margin-left:-22px;border-radius:85% 85% 45% 45%;background:linear-gradient(90deg,#c58b2b,#ffe99a 48%,#e5ad41);transform-origin:50% 100%;transform:rotate(var(--angle)) scaleY(.08);opacity:.15;transition:transform 2.5s cubic-bezier(.2,.8,.2,1),opacity 2s;box-shadow:inset -5px 0 12px #bd872d55}
+.bloom .petal{transform:rotate(var(--angle)) scaleY(1);opacity:1}.petal:nth-child(1){--angle:0deg}.petal:nth-child(2){--angle:60deg}.petal:nth-child(3){--angle:120deg}.petal:nth-child(4){--angle:180deg}.petal:nth-child(5){--angle:240deg}.petal:nth-child(6){--angle:300deg}
+.flower-center{position:absolute;width:23px;height:23px;background:#8e6024;border:4px dotted #f9df88;border-radius:50%;left:50%;top:44%;transform:translate(-50%,-50%) scale(0);transition:transform 1s 1.5s}.bloom .flower-center{transform:translate(-50%,-50%) scale(1)}
+.flower-stem{position:absolute;height:90px;width:5px;background:linear-gradient(#b7a34e,#466b40);bottom:-65px;left:50%;border-radius:100%;transform:scaleY(0);transform-origin:top;transition:transform 1.5s 1s}.bloom .flower-stem{transform:scaleY(1)}
+.hero-title{font:400 clamp(42px,8vw,76px) 'Cormorant Garamond',serif;color:var(--cream);margin:15px 0;opacity:0;animation:fadeUp 2s 3s forwards}.hero-subtitle{font:italic 22px 'Cormorant Garamond',serif;color:var(--gold);opacity:0;animation:fadeUp 2s 3.5s forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.primary-btn{margin-top:40px;padding:14px 28px;border:1px solid #e8c97888;border-radius:40px;color:var(--cream);background:#f2d47c15;letter-spacing:2px;font-size:10px;text-transform:uppercase;transition:.4s;opacity:0;animation:fadeUp 2s 4s forwards}.primary-btn:hover{background:var(--gold);color:var(--night);box-shadow:0 0 35px #f6ce6255}
+#garden{position:relative;min-height:100svh;display:none;overflow:hidden;padding:90px 20px 120px;text-align:center}.garden-heading{font:italic 36px 'Cormorant Garamond',serif;color:var(--gold);position:relative;z-index:3}.garden-caption{font-size:10px;letter-spacing:3px;opacity:.55;position:relative;z-index:3}
+#flowers{position:absolute;inset:0;pointer-events:none}.garden-flower{position:absolute;width:95px;height:135px;animation:grow .9s cubic-bezier(.2,.8,.2,1) forwards;transform:scale(0);transform-origin:bottom}.garden-flower .flower{animation:sway 4s ease-in-out infinite alternate}.garden-flower .petal{width:24px;height:48px;margin-left:-12px;top:0;background:linear-gradient(90deg,#d6a13d,#ffedac,#d9a63d);transition:transform 1.8s}.garden-flower .flower-stem{height:65px;width:3px;bottom:0}.garden-flower .flower-center{width:12px;height:12px;top:28%}
+@keyframes grow{to{transform:scale(1)}}@keyframes sway{from{transform:rotate(-5deg)}to{transform:rotate(5deg)}}
+#envelope-area{display:none;position:relative;z-index:5;margin:60px auto 0;text-align:center}.envelope{width:180px;height:120px;position:relative;margin:30px auto;perspective:800px;animation:float 4s ease-in-out infinite}.envelope-body{position:absolute;inset:0;background:#e8c36f;border-radius:5px;box-shadow:0 15px 40px #0005}.envelope-flap{position:absolute;top:0;width:0;height:0;border-left:90px solid transparent;border-right:90px solid transparent;border-top:72px solid #f7df9c;transform-origin:top;transition:transform .8s;z-index:2}.heart-seal{position:absolute;z-index:3;top:48px;left:75px;color:#9c473d;font-size:29px;transition:.4s}.envelope.open .envelope-flap{transform:rotateX(180deg)}.envelope.open .heart-seal{opacity:0}
+#letter-area{display:none;position:relative;z-index:6;padding:30px 15px 80px}.letter{background:#fff6df;color:#56452f;max-width:660px;margin:0 auto;padding:clamp(25px,6vw,65px);border-radius:3px;box-shadow:0 20px 90px #0006;text-align:left;position:relative}.letter:before{content:'';position:absolute;inset:10px;border:1px solid #bd9a5d55;pointer-events:none}.letter-heading{font:italic 40px 'Cormorant Garamond',serif;text-align:center;color:#98723c;margin:0 0 35px}.letter p{font:400 18px/1.85 'Cormorant Garamond',serif;opacity:0;transform:translateY(10px);transition:1s;position:relative}.letter p.visible{opacity:1;transform:translateY(0)}.letter .signature{font:34px 'Great Vibes',cursive;color:#a77d37;text-align:right;margin-top:35px}
+.photo-heading{text-align:center;font:italic 28px 'Cormorant Garamond',serif;color:#98723c;margin-top:50px}.photos{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:25px}.polaroid{background:white;padding:9px 9px 22px;box-shadow:0 5px 15px #7a624433;transform:rotate(var(--rotation));transition:.4s}.polaroid:hover{transform:rotate(0) translateY(-8px)}.polaroid img{width:100%;aspect-ratio:1/1.15;object-fit:cover;display:block;background:#e7d9b9}.polaroid span{display:block;color:#826746;font:italic 15px 'Cormorant Garamond',serif;text-align:center;margin-top:10px}
+#love-area{display:none;min-height:100svh;position:relative;padding:90px 15px;text-align:center;overflow:hidden}.love-title{font:400 clamp(40px,7vw,65px) 'Cormorant Garamond',serif;color:var(--gold);margin:0 0 12px}.love-subtitle{font:italic 20px 'Cormorant Garamond',serif;opacity:.7}#tag-cloud{position:relative;max-width:1000px;min-height:600px;margin:35px auto;display:flex;justify-content:center;align-content:center;flex-wrap:wrap;gap:11px;padding:15px}.love-tag{padding:12px 19px;border-radius:30px;border:1px solid #f8d77966;background:linear-gradient(135deg,#f6d88720,#e8b84d12);color:#ffe6a3;font:italic 17px 'Cormorant Garamond',serif;opacity:0;transform:scale(.2) rotate(-8deg);animation:tagPop .45s cubic-bezier(.17,.89,.32,1.4) forwards}.love-tag:nth-child(3n){color:#fff4d9;background:#e4bc6940}.love-tag:nth-child(4n){border-radius:8px}@keyframes tagPop{to{opacity:1;transform:scale(1) rotate(0)}}.final-tag{width:100%;color:var(--gold);font:italic clamp(30px,6vw,50px) 'Cormorant Garamond',serif;margin-top:35px;animation:fadeUp 2s forwards}.end-message{font:28px 'Great Vibes',cursive;color:var(--gold);margin:40px auto}footer{text-align:center;padding:35px 15px 50px;color:#f3d98c77;font:italic 17px 'Cormorant Garamond',serif}
+@media(max-width:600px){.photos{gap:8px}.polaroid{padding:6px 6px 15px}.polaroid span{font-size:12px}.letter p{font-size:17px}#tag-cloud{min-height:700px;gap:8px}.love-tag{font-size:15px;padding:10px 13px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div id="sky"></div><div id="stars"></div><div id="fireflies"></div>
+<section id="intro">
+  <div class="eyebrow">A little something for you</div>
+  <div class="hero-flower"><div class="flower" id="hero-flower">
+    <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="flower-center"></div><div class="flower-stem"></div>
+  </div></div>
+  <h1 class="hero-title">One year of us.</h1><div class="hero-subtitle">And a million more to come.</div>
+  <button class="primary-btn" onclick="startGarden()">Enter our little world ✧</button>
+</section>
+<section id="garden">
+  <h2 class="garden-heading">A garden, just for you.</h2><p class="garden-caption">TAP ANYWHERE TO GROW ANOTHER FLOWER</p>
+  <div id="flowers"></div>
+  <div id="envelope-area"><p style="font:italic 21px 'Cormorant Garamond';color:#f8dfa0">Something I wanted you to read...</p>
+    <div class="envelope" id="envelope" onclick="openLetter()"><div class="envelope-body"></div><div class="envelope-flap"></div><div class="heart-seal">♥</div></div>
+    <p style="font-size:10px;letter-spacing:3px;opacity:.7">OPEN YOUR LETTER</p>
+  </div>
+</section>
+<section id="letter-area"><div class="letter">
+  <h2 class="letter-heading">Dear Richu,</h2><div id="letter-content"></div><div class="signature">I love you. Always.</div>
+  <h3 class="photo-heading">A few moments of us ♡</h3>
+  <div class="photos">
+    <div class="polaroid" style="--rotation:-4deg"><img src="photo1.jpg" alt="Our memory one"><span>my favourite person</span></div>
+    <div class="polaroid" style="--rotation:3deg"><img src="photo2.jpg" alt="Our memory two"><span>my favourite moments</span></div>
+    <div class="polaroid" style="--rotation:-2deg"><img src="photo3.jpg" alt="Our memory three"><span>us, always</span></div>
+  </div>
+  <div style="text-align:center;margin-top:45px"><button class="primary-btn" style="opacity:1;animation:none;color:#77572c;border-color:#b18a4e" onclick="showLove()">There's more I love about you ♡</button></div>
+</div></section>
+<section id="love-area"><h2 class="love-title">Things I love about you.</h2><p class="love-subtitle">A few of the million reasons why...</p><div id="tag-cloud"></div><div class="end-message">To the end of the Milky Way and back. ♥</div><footer>One year down. A million more to go. 🌼</footer></section>
+<script>
+const CONFIG={
+ letter:[
+ "Whoa. cant believe its been a yearrr. i never thot i was stepping into one of the most special years of my life last year on this day.",
+ "I still remember how nervous i was, telling you that i love you. ANd from that day, ive only realised how dumb i was to wait that long (shld have told earlier).",
+ "Ik ive said this a thousand times richu, but ill say it again a million more. Ur the best thing that happened to me. Ill forever be grateful for you baby.",
+ "Ur the only one who can cheer me up, and make me feel like \"no matter how hard anyth gets, ill be fine as long as i have her\".",
+ "So much happened over the past 3 months and i regret them sm. but ive come to realise they only made me realise how special u are to me.",
+ "ill never forget our first kiss, and although i was nervous, it felt like fireworks went off in my head.",
+ "Anyways, cantt waitt to celebrate more anniversaries babyy. and now imma end this letter like i always do lol,",
+ "I love you to the end of milkyway and back"
+ ],
+ thingsILove:["Your eyes","Your smile","The way you glow when u smile","Your smile lines","Your cute nose","Your voice","The way u sound like a baby when u get sleepy","How u get both fun and silly me","How u get me in times when i need to talk to someone","How u gimme butterflies without even trying","The way you make things feel less heavy","How u give me hope when i need it","Your soft yet tight hugs","Your lips","Your laugh","The way you try to be mad at me when i ragebait u but u cant"],
+ flowerCount:19,tagDelay:180
+};
+const stars=document.getElementById('stars'),fireflies=document.getElementById('fireflies');
+for(let i=0;i<90;i++){const s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.width=s.style.height=(Math.random()*2+1)+'px';s.style.animationDelay=Math.random()*4+'s';stars.appendChild(s)}
+for(let i=0;i<22;i++){const f=document.createElement('div');f.className='firefly';f.style.left=Math.random()*100+'%';f.style.top=Math.random()*100+'%';f.style.width=f.style.height=(Math.random()*4+2)+'px';f.style.animationDelay=Math.random()*6+'s';fireflies.appendChild(f)}
+setTimeout(()=>document.getElementById('hero-flower').classList.add('bloom'),700);
+function createFlower(x,y,size=1){const el=document.createElement('div');el.className='garden-flower';el.style.left=x+'%';el.style.top=y+'%';el.style.width=95*size+'px';el.style.height=135*size+'px';el.innerHTML='<div class="flower"><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="flower-center"></div><div class="flower-stem"></div></div>';document.getElementById('flowers').appendChild(el);setTimeout(()=>el.querySelector('.flower').classList.add('bloom'),150)}
+let gardenStarted=false;
+function startGarden(){if(gardenStarted)return;gardenStarted=true;const intro=document.getElementById('intro');intro.style.opacity='0';intro.style.transform='scale(1.1)';setTimeout(()=>{intro.style.display='none';document.getElementById('garden').style.display='block';for(let i=0;i<CONFIG.flowerCount;i++)setTimeout(()=>createFlower(4+Math.random()*88,25+Math.random()*65,.55+Math.random()*.6),i*120);setTimeout(()=>document.getElementById('envelope-area').style.display='block',CONFIG.flowerCount*120+1000)},1200)}
+document.getElementById('garden').addEventListener('click',e=>{if(!gardenStarted||e.target.closest('#envelope-area'))return;const r=e.currentTarget.getBoundingClientRect();createFlower((e.clientX-r.left)/r.width*100,(e.clientY-r.top)/r.height*100,.55+Math.random()*.45)});
+let letterOpened=false;
+function escapeHTML(t){return t.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function openLetter(){if(letterOpened)return;letterOpened=true;document.getElementById('envelope').classList.add('open');setTimeout(()=>{document.getElementById('garden').style.display='none';const area=document.getElementById('letter-area');area.style.display='block';document.getElementById('letter-content').innerHTML=CONFIG.letter.map(x=>'<p>'+escapeHTML(x)+'</p>').join('');document.querySelectorAll('#letter-content p').forEach((p,i)=>setTimeout(()=>p.classList.add('visible'),i*950+400));window.scrollTo({top:0,behavior:'smooth'})},1000)}
+let loveShown=false;
+function showLove(){if(loveShown)return;loveShown=true;document.getElementById('letter-area').style.display='none';document.getElementById('love-area').style.display='block';const cloud=document.getElementById('tag-cloud');CONFIG.thingsILove.forEach((thing,i)=>setTimeout(()=>{const tag=document.createElement('div');tag.className='love-tag';tag.textContent=thing;cloud.appendChild(tag);if(i===CONFIG.thingsILove.length-1)setTimeout(()=>{const last=document.createElement('div');last.className='final-tag';last.textContent='AND A MILLION MORE. ♥';cloud.appendChild(last)},500)},i<6?i*350:2100+(i-6)*CONFIG.tagDelay));window.scrollTo({top:0,behavior:'smooth'})}
+</script>
+</body>
+</html>
